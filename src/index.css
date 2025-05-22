@@ -1,0 +1,128 @@
+.dashboard {
+  height: 100vh;
+}
+
+.header-container {
+  /* position: fixed;
+  left: 0;
+  top: 0; */
+  height: 60px;
+  box-shadow: 0px 0px 8px gray;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  text-align: center;
+  color: gray;
+  padding: 4px;
+}
+
+.body {
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.left-section {
+  box-shadow: 0px 0px 2px gray;
+  margin-right: 10px;
+}
+
+.right-section {
+  flex-grow: 1;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0px 0px 2px gray;
+  list-style-type: none;
+  padding: 0px;
+  margin-top: 0px;
+  width: 200px;
+}
+
+.nav-item {
+  padding: 10px;
+  box-shadow: 0px 0px 2px gray;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background-color: gray;
+  color: white;
+}
+
+.nav-item-active {
+  background-color: aliceblue;
+  color: blueviolet;
+}
+
+.table-container {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+}
+
+.table-body,
+.table-head {
+  /* display: grid;
+  grid-template-columns: repeat(4, minmax(400px, 1fr)); */
+}
+
+.column-row,
+.row,
+.row-data,
+.column-data {
+  box-shadow: 0px 0px 1px black;
+  padding: 10px;
+}
+
+.right-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px;
+}
+
+.table-utils {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40px;
+}
+.filter-container {
+  height: 100%;
+}
+.select {
+  padding: 4px;
+  height: 100%;
+  background-color: lightgray;
+  border: 1px gray;
+  border-radius: 6px;
+}
+
+.input {
+  height: 80%;
+  padding: 5px;
+  background-color: lightgray;
+  border: 1px gray;
+  border-radius: 6px;
+}
+
+.clear-button {
+  height: 40px;
+  padding: 4px;
+  background-color: lightgray;
+  border: 1px gray;
+  color: black;
+  width: fit-content;
+  border-radius: 8px;
+}

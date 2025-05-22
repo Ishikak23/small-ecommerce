@@ -1,0 +1,9 @@
+- Header (basic title in a box)
+- Left section
+  - nav bar containing categories
+- Right section
+  - table
+  - filter
+  - search
+  - Clear selection
+  - pagination
