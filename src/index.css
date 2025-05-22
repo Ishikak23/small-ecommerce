@@ -148,3 +148,25 @@
 .row-data--wishListed {
   color: red;
 }
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.pagination-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  list-style-type: none;
+}
+
+.pagination-item {
+  margin-right: 8x;
+  cursor: pointer;
+}
+
+.pagination-item--active {
+  color: green;
+}

@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Pagination from "./Pagination";
 import { useWishListContext } from "../utils/wishListContext";
+
+const ITEM_PER_PAGE = 5;
 
 const Table = (props) => {
   const { productData, handleWishList } = props;
   const { wishListData } = useWishListContext();
+  const [displayData, setDisplayData] = useState(productData);
+
+  useEffect(() => {
+    handlePagination(1);
+  }, [productData]);
+
+  const handlePagination = (item) => {
+    const data = productData?.slice(
+      (item - 1) * ITEM_PER_PAGE,
+      item * ITEM_PER_PAGE
+    );
+    console.log(data);
+    setDisplayData(data);
+  };
   return (
     <div className="table-container">
       <table className="table">
@@ -17,7 +34,7 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody className="table-body">
-          {productData?.map((item) => {
+          {displayData?.map((item) => {
             const { title, price, category, rating, id } = item;
             const isWishListed =
               wishListData.findIndex((item) => item.id == id) != -1;
@@ -48,6 +65,11 @@ const Table = (props) => {
           })}
         </tbody>
       </table>
+      <Pagination
+        totalData={productData?.length}
+        dataPerPage={ITEM_PER_PAGE}
+        handlePagination={handlePagination}
+      />
     </div>
   );
 };
