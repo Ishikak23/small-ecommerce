@@ -1,18 +1,16 @@
 import React, { use, useEffect, useState } from "react";
 import Table from "./Table";
+import { useWishListContext } from "../utils/wishListContext";
 
 const RightSection = (props) => {
   const { category, handleCategory } = props;
   const [productData, setProductData] = useState();
   const [searchValue, setSearchValue] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const { wishListData, setWishListData } = useWishListContext();
 
   const getProductData = async () => {
     let data;
-    console.log(
-      "category",
-      category != null || category != undefined || category != ""
-    );
     if (category != null || category != undefined) {
       const res = await fetch(
         `https://fakestoreapi.com/products/category/${category}`
@@ -52,6 +50,11 @@ const RightSection = (props) => {
   };
 
   const tableData = searchValue ? filteredData : productData;
+
+  const handleWishList = (id) => {
+    const data = tableData.filter((item) => item.id == id)?.[0];
+    setWishListData((prev) => [...prev, data]);
+  };
 
   return (
     <div className="right-section">
@@ -97,7 +100,7 @@ const RightSection = (props) => {
         </div>
       </div>
 
-      <Table productData={tableData} />
+      <Table productData={tableData} handleWishList={handleWishList} />
     </div>
   );
 };
